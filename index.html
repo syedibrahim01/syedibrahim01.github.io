@@ -3,47 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Syed Ibrahim Shabeer Ahamed | Portfolio</title>
+  <title>Syed Ibrahim Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: #f5f7fa;
+      background: #f0f4f8;
       color: #333;
-      line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(90deg, #2a5298, #1e3c72);
-      color: white;
       text-align: center;
-      padding: 2rem 1rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 3rem 1rem 2rem;
+      background: #1e3c72;
+      position: relative;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    .gradient-text {
+      font-size: 2.8rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff6a00, #ee0979, #00c9ff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shine 4s linear infinite;
     }
 
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.2rem;
+    @keyframes shine {
+      0% {
+        background-position: 0% center;
+      }
+      100% {
+        background-position: 200% center;
+      }
     }
 
-    section {
+    .role {
+      color: #fff;
+      font-size: 1.3rem;
+      margin-top: 0.5rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #555;
+      transition: all 0.3s ease;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background: #1e3c72;
+      color: white;
+    }
+
+    .section {
+      display: none;
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
+      animation: fadeIn 0.5s ease-in;
     }
 
-    section h2 {
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    h2 {
+      color: #1e3c72;
       font-size: 1.8rem;
       border-bottom: 2px solid #1e3c72;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-      color: #1e3c72;
+      padding-bottom: 0.3rem;
     }
 
     ul {
@@ -51,7 +102,7 @@
     }
 
     li {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.8rem;
     }
 
     a {
@@ -66,35 +117,31 @@
     footer {
       text-align: center;
       padding: 1rem;
-      background: #e2e8f0;
+      background: #e0e6ed;
       font-size: 0.9rem;
-      color: #555;
       margin-top: 2rem;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      section h2 {
-        font-size: 1.5rem;
-      }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Syed Ibrahim Shabeer Ahamed</h1>
-    <p>DevOps & Cloud Engineer</p>
+    <h1 class="gradient-text">Syed Ibrahim Shabeer Ahamed</h1>
+    <p class="role">DevOps & Cloud Engineer</p>
   </header>
 
-  <section id="about">
+  <nav>
+    <button class="tab active" onclick="showTab('about')">About Me</button>
+    <button class="tab" onclick="showTab('projects')">Projects</button>
+    <button class="tab" onclick="showTab('contact')">Contact</button>
+  </nav>
+
+  <section id="about" class="section active">
     <h2>About Me</h2>
     <p>I’m a DevOps and Cloud professional with hands-on experience in AWS, Azure, Terraform, Kubernetes, and CI/CD pipelines.</p>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="section">
     <h2>Projects</h2>
     <ul>
       <li><strong>Terraform Infra Setup</strong> – Automated multi-cloud deployments using Terraform.</li>
@@ -103,7 +150,7 @@
     </ul>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="section">
     <h2>Contact</h2>
     <p><strong>Email:</strong> syed.ibrahim@gmail.com</p>
     <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/syed-ibrahim-479139172/" target="_blank">syedibrahim</a></p>
@@ -113,5 +160,20 @@
   <footer>
     <p>© 2025 Syed Ibrahim</p>
   </footer>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.querySelector(`#${tabId}`).classList.add('active');
+
+      document.querySelectorAll('.tab').forEach(button => {
+        button.classList.remove('active');
+      });
+      event.target.classList.add('active');
+    }
+  </script>
+
 </body>
 </html>
