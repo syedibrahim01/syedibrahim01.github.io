@@ -306,6 +306,79 @@
       color: var(--accent);
     }
 
+    .certifications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .certification-card {
+      background: var(--white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .certification-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .certification-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .certification-icon {
+      font-size: 2rem;
+    }
+
+    .certification-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .certification-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .certification-issuer {
+      color: var(--gray);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .certification-date {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    .certification-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--primary);
+      font-weight: 500;
+      margin-top: 1rem;
+      transition: var(--transition);
+    }
+
+    .certification-link:hover {
+      color: var(--accent);
+    }
+
     .contact-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -471,6 +544,10 @@
       .contact-container {
         grid-template-columns: 1fr;
       }
+      
+      .certifications-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
@@ -499,6 +576,10 @@
       
       h2 {
         font-size: 1.8rem;
+      }
+      
+      .certifications-grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -537,6 +618,7 @@
           <li><button class="tab active" onclick="showTab('about')">About</button></li>
           <li><button class="tab" onclick="showTab('skills')">Skills</button></li>
           <li><button class="tab" onclick="showTab('projects')">Projects</button></li>
+          <li><button class="tab" onclick="showTab('certifications')">Certifications</button></li>
           <li><button class="tab" onclick="showTab('contact')">Contact</button></li>
         </ul>
       </div>
@@ -617,14 +699,15 @@
           </div>
           <div class="project-content">
             <h3 class="project-title">Multi-Cloud Infrastructure</h3>
-            <p class="project-description">Automated deployment of scalable infrastructure across AWS and Azure using Terraform.</p>
+            <p class="project-description">Automated deployment of scalable infrastructure across AWS and Azure using Terraform, reducing deployment time by 80%.</p>
             <div class="project-tech">
               <span class="tech-tag">Terraform</span>
               <span class="tech-tag">AWS</span>
               <span class="tech-tag">Azure</span>
+              <span class="tech-tag">GitHub Actions</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+              <a href="https://github.com/syedibrahim01/terraform-multi-cloud" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
               <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
             </div>
           </div>
@@ -635,14 +718,15 @@
           </div>
           <div class="project-content">
             <h3 class="project-title">CI/CD Pipeline Automation</h3>
-            <p class="project-description">Implemented end-to-end CI/CD pipelines using GitHub Actions and Azure Pipelines.</p>
+            <p class="project-description">Implemented end-to-end CI/CD pipelines using GitHub Actions and Azure Pipelines for multiple microservices.</p>
             <div class="project-tech">
               <span class="tech-tag">GitHub Actions</span>
               <span class="tech-tag">Azure DevOps</span>
               <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Kubernetes</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+              <a href="https://github.com/syedibrahim01/cicd-pipeline" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
               <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
             </div>
           </div>
@@ -653,16 +737,121 @@
           </div>
           <div class="project-content">
             <h3 class="project-title">Kubernetes Cluster Management</h3>
-            <p class="project-description">Deployed and managed microservices on Kubernetes with Helm charts and monitoring.</p>
+            <p class="project-description">Deployed and managed microservices on Kubernetes with Helm charts, monitoring, and auto-scaling capabilities.</p>
             <div class="project-tech">
               <span class="tech-tag">Kubernetes</span>
               <span class="tech-tag">Helm</span>
               <span class="tech-tag">Prometheus</span>
+              <span class="tech-tag">Grafana</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+              <a href="https://github.com/syedibrahim01/k8s-cluster" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
               <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
             </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <i class="fas fa-server"></i>
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Infrastructure Monitoring</h3>
+            <p class="project-description">Built a comprehensive monitoring solution using Prometheus, Grafana, and Alertmanager for cloud infrastructure.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Prometheus</span>
+              <span class="tech-tag">Grafana</span>
+              <span class="tech-tag">AWS CloudWatch</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/syedibrahim01/infra-monitoring" class="project-link" target="_blank"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="section">
+      <h2>Certifications</h2>
+      <div class="certifications-grid">
+        <div class="certification-card">
+          <div class="certification-header">
+            <div class="certification-icon">
+              <i class="fab fa-aws"></i>
+            </div>
+            <div>
+              <h3 style="color: white; margin: 0;">AWS Certified</h3>
+              <p style="color: rgba(255,255,255,0.8); margin: 0;">Solutions Architect</p>
+            </div>
+          </div>
+          <div class="certification-body">
+            <h4 class="certification-title">AWS Certified Solutions Architect - Associate</h4>
+            <p class="certification-issuer">Amazon Web Services</p>
+            <p class="certification-date">Issued: June 2023 | Expires: June 2026</p>
+            <a href="#" class="certification-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i> View Credential
+            </a>
+          </div>
+        </div>
+        
+        <div class="certification-card">
+          <div class="certification-header">
+            <div class="certification-icon">
+              <i class="fab fa-microsoft"></i>
+            </div>
+            <div>
+              <h3 style="color: white; margin: 0;">Azure Certified</h3>
+              <p style="color: rgba(255,255,255,0.8); margin: 0;">Administrator</p>
+            </div>
+          </div>
+          <div class="certification-body">
+            <h4 class="certification-title">Microsoft Certified: Azure Administrator Associate</h4>
+            <p class="certification-issuer">Microsoft</p>
+            <p class="certification-date">Issued: March 2023 | Expires: March 2025</p>
+            <a href="#" class="certification-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i> View Credential
+            </a>
+          </div>
+        </div>
+        
+        <div class="certification-card">
+          <div class="certification-header">
+            <div class="certification-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div>
+              <h3 style="color: white; margin: 0;">Kubernetes</h3>
+              <p style="color: rgba(255,255,255,0.8); margin: 0;">Certified Administrator</p>
+            </div>
+          </div>
+          <div class="certification-body">
+            <h4 class="certification-title">Certified Kubernetes Administrator (CKA)</h4>
+            <p class="certification-issuer">Cloud Native Computing Foundation</p>
+            <p class="certification-date">Issued: September 2023 | Expires: September 2026</p>
+            <a href="#" class="certification-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i> View Credential
+            </a>
+          </div>
+        </div>
+        
+        <div class="certification-card">
+          <div class="certification-header">
+            <div class="certification-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div>
+              <h3 style="color: white; margin: 0;">Terraform</h3>
+              <p style="color: rgba(255,255,255,0.8); margin: 0;">Associate Certified</p>
+            </div>
+          </div>
+          <div class="certification-body">
+            <h4 class="certification-title">HashiCorp Certified: Terraform Associate</h4>
+            <p class="certification-issuer">HashiCorp</p>
+            <p class="certification-date">Issued: January 2024 | Expires: January 2026</p>
+            <a href="#" class="certification-link" target="_blank">
+              <i class="fas fa-external-link-alt"></i> View Credential
+            </a>
           </div>
         </div>
       </div>
@@ -741,6 +930,7 @@
         <div class="footer-links">
           <a href="#about" class="footer-link">About</a>
           <a href="#projects" class="footer-link">Projects</a>
+          <a href="#certifications" class="footer-link">Certifications</a>
           <a href="#contact" class="footer-link">Contact</a>
         </div>
         <p class="copyright">© 2025 Syed Ibrahim. All rights reserved.</p>
