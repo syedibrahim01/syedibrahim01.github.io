@@ -535,6 +535,60 @@
       font-size: 0.9rem;
     }
 
+    /* Experience Section */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--primary);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 80px;
+    }
+
+    .timeline-date {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 60px;
+      padding: 0.5rem;
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .timeline-content {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-content h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content h4 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
     /* Responsive Styles */
     @media (max-width: 992px) {
       .about-content {
@@ -581,6 +635,19 @@
       .certifications-grid {
         grid-template-columns: 1fr;
       }
+
+      .timeline::before {
+        left: 20px;
+      }
+
+      .timeline-item {
+        padding-left: 60px;
+      }
+
+      .timeline-date {
+        width: 40px;
+        font-size: 0.8rem;
+      }
     }
 
     @media (max-width: 576px) {
@@ -600,7 +667,7 @@
     <div class="container">
       <div class="header-content">
         <div class="profile-section">
-          <img src="https://via.placeholder.com/160" alt="Syed Ibrahim" class="profile-image">
+          <img src="images/SyedIbrahim.JPG" alt="Syed Ibrahim" class="profile-image">
           <div class="profile-text">
             <h1>Syed Ibrahim Shabeer Ahamed</h1>
             <p class="role">DevOps & Cloud Engineer</p>
@@ -617,6 +684,7 @@
         <ul class="nav-tabs">
           <li><button class="tab active" onclick="showTab('about')">About</button></li>
           <li><button class="tab" onclick="showTab('skills')">Skills</button></li>
+          <li><button class="tab" onclick="showTab('experience')">Experience</button></li>
           <li><button class="tab" onclick="showTab('projects')">Projects</button></li>
           <li><button class="tab" onclick="showTab('certifications')">Certifications</button></li>
           <li><button class="tab" onclick="showTab('contact')">Contact</button></li>
@@ -685,6 +753,36 @@
               <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">GitHub Actions</li>
               <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">Azure DevOps</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <h2>Professional Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2022 - Present</div>
+          <div class="timeline-content">
+            <h3>DevOps Engineer</h3>
+            <h4>Tech Solutions Inc.</h4>
+            <p>Designed and implemented CI/CD pipelines using Jenkins and GitHub Actions, reducing deployment time by 60%. Managed Kubernetes clusters and containerized applications using Docker.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2020 - 2022</div>
+          <div class="timeline-content">
+            <h3>Cloud Infrastructure Engineer</h3>
+            <h4>Cloud Innovations Ltd.</h4>
+            <p>Implemented Infrastructure as Code using Terraform to manage multi-cloud environments. Automated cloud resource provisioning and optimized costs by 30% through right-sizing and reserved instances.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2018 - 2020</div>
+          <div class="timeline-content">
+            <h3>Systems Administrator</h3>
+            <h4>Data Systems Corp.</h4>
+            <p>Managed on-premise and cloud infrastructure, implemented monitoring solutions, and automated routine tasks using scripting languages.</p>
           </div>
         </div>
       </div>
